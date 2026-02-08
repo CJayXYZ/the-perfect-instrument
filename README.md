@@ -1,4 +1,4 @@
-# Perfect Instrument - iOS Audio App
+# The Perfect Instrument - iOS Audio App
 
 A professional-grade iOS instrument application featuring Piano, Violin, and Guitar with gyroscope-based pitch bend and modulation control.
 
