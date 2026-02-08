@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Perfect Instrument - Professional iOS Music App</title>
+    <meta name="description" content="Transform your iPhone into a professional musical instrument with motion-controlled pitch bend and realistic sound synthesis.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.6);
+            font-style: italic;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        .instruments {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .instruments h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .instrument-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .instrument {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .instrument h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .cta {
+            text-align: center;
+            margin: 80px 0 60px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #fff, #e0e7ff);
+            color: #667eea;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .coming-soon {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 25px;
+            border-radius: 25px;
+            margin-left: 15px;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 10px 0;
+        }
+
+        .tech-specs {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 60px 0;
+        }
+
+        .tech-specs h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .tech-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tech-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .tech-item strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            header, .instruments, .tech-specs, footer {
+                padding: 30px 20px;
+            }
+
+            .feature-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>The Perfect Instrument</h1>
+            <p class="subtitle">PrimeC Labs</p>
+            <p class="tagline">Transform Your iPhone Into a Professional Musical Instrument</p>
+        </header>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🎹</div>
+                <h3>Three Instruments</h3>
+                <p>Piano with 4 scrollable octaves, fretless Violin with position indicator, and 6-string Guitar with 12 frets.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Motion Controls</h3>
+                <p>Tilt your device left/right for pitch bend, up/down for amplitude modulation. Real-time expressive performance.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-card">
+                <div class="feature-icon">🎵</div>
+                <h3>Studio Quality Sound</h3>
+                <p>AVFoundation synthesis with ADSR envelopes, 6-8 harmonics, and realistic instrument timbres.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌓</div>
+                <h3>Beautiful Design</h3>
+                <p>Dark gradient UI with glass-morphism effects, 3D keys, wooden textures, and smooth animations.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📳</div>
+                <h3>Haptic Feedback</h3>
+                <p>Tactile response when hitting MIDI note frequencies for enhanced playing experience.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Landscape Optimized</h3>
+                <p>Designed for landscape orientation with full-width instrument layouts and ergonomic controls.</p>
+            </div>
+        </div>
+
+        <div class="instruments">
+            <h2>Three Instruments, Infinite Possibilities</h2>
+            <div class="instrument-grid">
+                <div class="instrument">
+                    <h3>🎹 Piano</h3>
+                    <p>4 octaves with gradient keys, 3D depth effects, and navigation arrows. ADSR envelope with 6 harmonics for rich, sustained tones.</p>
+                </div>
+                <div class="instrument">
+                    <h3>🎻 Violin</h3>
+                    <p>Fretless horizontal strings with wooden background. Drag your finger for continuous pitch control with realistic vibrato.</p>
+                </div>
+                <div class="instrument">
+                    <h3>🎸 Guitar</h3>
+                    <p>6 strings × 12 frets with wood textures and colored strings. Karplus-Strong synthesis for authentic guitar sound.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tech-specs">
+            <h2>Technical Excellence</h2>
+            <div class="tech-list">
+                <div class="tech-item">
+                    <strong>Audio Engine</strong>
+                    AVFoundation with 44.1kHz sample rate
+                </div>
+                <div class="tech-item">
+                    <strong>Latency</strong>
+                    5ms buffer for real-time response
+                </div>
+                <div class="tech-item">
+                    <strong>Motion Sensors</strong>
+                    CoreMotion at 100Hz update rate
+                </div>
+                <div class="tech-item">
+                    <strong>Sound Synthesis</strong>
+                    ADSR envelopes with harmonics
+                </div>
+                <div class="tech-item">
+                    <strong>iOS Version</strong>
+                    iOS 15.0 and later
+                </div>
+                <div class="tech-item">
+                    <strong>Framework</strong>
+                    SwiftUI with modern declarative UI
+                </div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <a href="#" class="download-btn">
+                Download on the App Store
+                <span class="coming-soon">Coming Soon</span>
+            </a>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 PrimeC Labs. All rights reserved.</p>
+            <p>Bundle ID: com.primeclabs.theperfectinstrument</p>
+            <p><a href="https://github.com/CJayXYZ/the-perfect-instrument" style="color: rgba(255,255,255,0.8); text-decoration: none;">View on GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>
